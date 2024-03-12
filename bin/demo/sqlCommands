@@ -1,0 +1,20 @@
+CREATE TABLE passengers (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+CREATE TABLE flights (
+    flightNumber INT PRIMARY KEY,
+    airline VARCHAR(50),
+    totalSeats INT,
+    availableSeats INT
+);
+
+CREATE TABLE bookings (
+    bookingId INT PRIMARY KEY AUTO_INCREMENT,
+    passengerId INT,
+    flightNumber INT,
+    FOREIGN KEY (passengerId) REFERENCES passengers(id),
+    FOREIGN KEY (flightNumber) REFERENCES flights(flightNumber)
+);
